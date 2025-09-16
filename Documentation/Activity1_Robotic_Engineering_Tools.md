@@ -12,21 +12,7 @@ We will use the following tools for this course:
     - For better stability, we will use version 3.10.11 (https://www.python.org/downloads/release/python-31011/)
     - In Files section choose your platform installer (windows or Mac)
     - Make sure to check the box `Add Python 3.10 to PATH` before clicking `Install Now`
-    - Close VScode and open it again. In a terminal, to see the python path, type:
-        - `where python` (Windows)
-        - `which python` (Mac)
-    - Add a file `.vscode/settings.json` with:
-        ````json
-        {
-        "python.defaultInterpreterPath": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
-        "terminal.integrated.env.windows": {
-                "PATH": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\;${env:PATH}"
-            }
-        }
-        ````
-        > Change the path to your python installation you have obtained in the previous point
-
-    - Select from the lower right menu the python interpreter (Python 3.10.11). Some modifications will be made in your `settings.json` file
+    
 - [RoboDK](https://robodk.com/) as the simulation and programming software
     - Download and install RoboDK for your platform (Windows or Mac)
         - Open "Tools"-->"Options"-->"Python" and set the path to your python installation and python editor to VScode path
@@ -70,11 +56,28 @@ The Laboratory Projects and some Activities will be made in cooperation with the
   ```shell
   git clone https://github.com/director_username/UB_Engineering_Tools
   ```
-  >Successives times you can update the project with:
-  ```shell
-  cd UB_Engineering_Tools
-  git pull
-  ```
+- In a terminal, to see the python path, type:
+    - `where python` (Windows)
+    - `which python` (Mac)
+
+- Add a file `.vscode/settings.json` with:
+    ````json
+    {
+    "python.defaultInterpreterPath": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "terminal.integrated.env.windows": {
+            "PATH": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\;${env:PATH}"
+        }
+    }
+    ````
+    > Change the path to your python installation you have obtained in the previous point
+
+- Select from the lower right menu the python interpreter (Python 3.10.11). Some modifications will be made in your `settings.json` file
+
+- You can update the local project with:
+    ```shell
+    cd UB_Engineering_Tools
+    git pull
+    ```
 - First time, open a "Git bash" terminal and configure git with your credentials:
     ```git
     git config --global user.name "your_name"
