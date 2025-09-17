@@ -102,7 +102,6 @@ The objective of this activity is to work collaboratively on a RoboDK project:
 - All the students have made contributions to the project
 
 For that purpose, you will make a project to pick a cube from the table with a 2FG7 gripper mounted on UR5e robot arm:
-- From FileManager, open the robodk program `Pick&Place_UR5e_students.rdk`
 - From VScode, open the `settings.json` file and the python file `Pick&Place_UR5e_SW_students.py` on the side
 - Run the python code and see how the robot arm is moving.
 - Take a picture of roboDK screen (pick.png) and copy it to `Images` folder
