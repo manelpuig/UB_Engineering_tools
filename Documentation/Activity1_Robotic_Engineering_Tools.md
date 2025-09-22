@@ -56,7 +56,7 @@ The Laboratory Projects and some Activities will be made in cooperation with the
   ```shell
   git clone https://github.com/director_username/UB_Engineering_Tools
   ```
-- In a terminal, to see the python path, type:
+- In a `cmd` terminal, to see the python path, type:
     - `where python` (Windows)
     - `which python` (Mac)
 
