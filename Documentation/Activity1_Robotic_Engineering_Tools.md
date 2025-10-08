@@ -12,27 +12,14 @@ We will use the following tools for this course:
     - For better stability, we will use version 3.10.11 (https://www.python.org/downloads/release/python-31011/)
     - In Files section choose your platform installer (windows or Mac)
     - Make sure to check the box `Add Python 3.10 to PATH` before clicking `Install Now`
-    - Close VScode and open it again. In a terminal, to see the python path, type:
-        - `where python` (Windows)
-        - `which python` (Mac)
-    - Add a file `.vscode/settings.json` with:
-        ````json
-        {
-        "python.defaultInterpreterPath": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
-        "terminal.integrated.env.windows": {
-                "PATH": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\;${env:PATH}"
-            }
-        }
-        ````
-        > Change the path to your python installation you have obtained in the previous point
-
-    - Select from the lower right menu the python interpreter (Python 3.10.11). Some modifications will be made in your `settings.json` file
+    
 - [RoboDK](https://robodk.com/) as the simulation and programming software
     - Download and install RoboDK for your platform (Windows or Mac)
-        - Open "Tools"-->"Options"-->"Python" and set the path to your python installation and python editor to VScode path
+        - Open a cmd terminal and to see the `python path` and `VScode path`, type:
+            - `where python` and `where code` (Windows)
+            - `which python` and `which code` (Mac)
+       - Open "Tools"-->"Options"-->"Python" and set the path to your python installation and python editor to VScode path
         ![](./Images/robodk_python_options.png)
-    - Open a terminal in VScode and install:
-        - `python -m pip install robodk`
 
 - [GitHub](https://github.com/) for version control and collaboration
     - Create a GitHub account. You will need to specify:
@@ -65,28 +52,56 @@ The Laboratory Projects and some Activities will be made in cooperation with the
 
 - Then the `Collaborators` will make a "fork" of the `Director`'s github project.
 - The `Collaborators` will be able to update the github `Director`'s project and participate on the project generation
-- Create in your Laptop a local desired Project/Activity folder. Open VScode in that folder.
-- First time, clone your forked `Director`'s github project. In `Git bash` VScode terminal, type:
+- Create in your Laptop a local desired `Project/Activity` folder. Open VScode in that folder.
+
+### First time
+
+- Clone your forked `Director`'s github project. In `Git bash` VScode terminal, type:
   ```shell
   git clone https://github.com/director_username/UB_Engineering_Tools
   ```
-  >Successives times you can update the project with:
-  ```shell
-  cd UB_Engineering_Tools
-  git pull
-  ```
-- First time, open a "Git bash" terminal and configure git with your credentials:
+- In VScode select `File/Open folder...` and choose the project folder you have cloned `UB_Engineering_Tools`
+- Add a file `.vscode/settings.json` with:
+    ````json
+    {
+    "python.defaultInterpreterPath": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "terminal.integrated.env.windows": {
+            "PATH": "C:\\Users\\puigm\\AppData\\Local\\Programs\\Python\\Python310\\;${env:PATH}"
+        }
+    }
+    ````
+    > Change the path to your python installation you have obtained in the previous point
+- Select from the lower right menu the python interpreter (Python 3.10.11). Some modifications will be made in your `settings.json` file
+- Open a terminal in VScode and install:
+    - `python -m pip install robodk`
+- Because of these settings are different for each student, you will not sync this file on github. For this purpose, we have included in root project folder a file `.gitignore` adding a line with the folder you want not to sync (`.vscode/`)
+- open a "Git bash" terminal and configure git with your credentials:
     ```git
     git config --global user.name "your_name"
     git config --global user.email "your_email@alumnes.ub.edu"
     ```
-- To add your contributions to the project, you will proceed:
+
+### Next times
+- You have to update the local project with the contents of github project (some collaborators could have made modifications):
+    ```shell
+    git pull
+    ```
+- You can work on the project
+- When finished, to add your contributions to the project, you will have to:
     ````shell
-    cd UB_Engineering_Tools
     git add .
     git commit -m "your_commit_message"
     git push
     ````
+- If you find errors because you have forgotten to make `git pull`. You have to proceed with:
+    - Merge the remote github changes with `git pull`
+    - solve manually in VScode editor the final version of the file in conflict
+    - sync the final changes with:
+        ````shell
+        git add .
+        git commit -m "conflict_resolution_message"
+        git push
+        ````
 - You will have to enter your PAT
 - The `Director` repository is updated with the collaborator's contributions
 
@@ -99,7 +114,6 @@ The objective of this activity is to work collaboratively on a RoboDK project:
 - All the students have made contributions to the project
 
 For that purpose, you will make a project to pick a cube from the table with a 2FG7 gripper mounted on UR5e robot arm:
-- From FileManager, open the robodk program `Pick&Place_UR5e_students.rdk`
 - From VScode, open the `settings.json` file and the python file `Pick&Place_UR5e_SW_students.py` on the side
 - Run the python code and see how the robot arm is moving.
 - Take a picture of roboDK screen (pick.png) and copy it to `Images` folder
